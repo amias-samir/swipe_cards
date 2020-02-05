@@ -4,11 +4,11 @@ class MatchCard {
   int blueColor = 0;
   double margin = 0;
 
-  MatchCard(int red, int green, int blue, double marginTop) {
+  MatchCard(int red, int green, int blue, double marginBottom) {
     redColor = red;
     greenColor = green;
     blueColor = blue;
-    margin = marginTop;
+    margin = marginBottom;
   }
 }
 
