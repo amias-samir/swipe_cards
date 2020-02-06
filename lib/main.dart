@@ -17,6 +17,21 @@ class MyApp extends StatelessWidget {
         height: 540,
         width: 340,
         threshold: 230,
+        onCardClicked: (){
+
+        },
+        onLeftSwipe: (){
+
+        },
+        onRightSwipe: (){
+
+        },
+        onUpSwipe: (){
+
+        },
+        onDownSwipe: (){
+
+        },
       ),
     );
   }
