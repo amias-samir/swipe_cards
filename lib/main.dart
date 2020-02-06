@@ -131,11 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
+    return Center(
         child: Container(
           padding: EdgeInsets.only(bottom: 16.0),
           child: Stack(
@@ -148,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       )
                     ]),
         ),
-      ),
+
     );
   }
 
