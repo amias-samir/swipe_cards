@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Card Stack',
         height: 540,
         width: 340,
-        threshold: 200,
+        threshold: 20,
         onCardClicked: (){},
         onLeftSwipe: (){},
         onUpSwipe: (){},
@@ -31,7 +31,7 @@ class MyHomePage extends StatefulWidget {
       this.title,
       this.height = 540,
       this.width = 340,
-      this.threshold = 310,
+      this.threshold = 20,
       this.positionTop = 10.0,
       this.positionBottom = 10.0,
       this.positionLeft = 10.0,
@@ -200,11 +200,11 @@ class _MyHomePageState extends State<MyHomePage> {
 //              print("Card up/down Neutral");
             }
 
-            if (drag.offset.distance > widget.threshold) {
+            if (drag.offset.distance > widget.threshold*10) {
               _removeCard(x);
             }
 
-            if (drag.offset.distance < widget.threshold &&
+            if (drag.offset.distance < widget.threshold*10 &&
                 (drag.offset.dx < widget.width / 10 ||
                     drag.offset.dx > -widget.width / 10 ||
                     (drag.offset.dy < (widget.height / 5) + 10) ||
