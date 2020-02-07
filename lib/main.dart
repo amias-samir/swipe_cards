@@ -16,23 +16,11 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Card Stack',
         height: 540,
         width: 340,
-        threshold: 230,
-        onCardClicked: (){
-
-        },
-        onLeftSwipe: (){
-
-        },
-        onRightSwipe: (){
-
-        },
-        onUpSwipe: (){
-
-        },
-        onDownSwipe: (){
-
-        },
-      ),
+        threshold: 200,
+        onCardClicked: (){},
+        onLeftSwipe: (){},
+        onUpSwipe: (){},
+        onRightSwipe: (){},),
     );
   }
 }
@@ -95,23 +83,23 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     cardList = _getMatchCard(
         onRightSwipe: () {
-          widget.onRightSwipe();
+          if(widget.onRightSwipe != null){widget.onRightSwipe();}
       print("Right swipe");
     },
         onLeftSwipe: () {
-          widget.onLeftSwipe();
+          if(widget.onLeftSwipe != null){widget.onLeftSwipe();}
       print("Left swipe");
     },
         onUpSwipe: () {
-          widget.onUpSwipe();
+          if(widget.onUpSwipe != null){widget.onUpSwipe();}
       print("Up swipe");
     },
         onDownSwipe: () {
-          widget.onDownSwipe();
+          if(widget.onDownSwipe != null){widget.onDownSwipe();}
       print("Down swipe");
     },
         onCardClicked: () {
-          widget.onCardClicked();
+          if(widget.onCardClicked != null){widget.onCardClicked();}
       print("Card Clicked");
     });
   }
@@ -131,25 +119,30 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
-    return Center(
-        child: Container(
-          padding: EdgeInsets.only(bottom: 16.0),
-          child: Stack(
-              alignment: Alignment.center,
-              children: cardList.length > 0
-                  ? cardList
-                  : <Widget>[
-                      Center(
-                        child: Text("There is no list data !!"),
-                      )
-                    ]),
-        ),
+    return Scaffold(
+      body: Center(
+          child: Container(
+            height: widget.height+16,
+            width: widget.width,
+            padding: EdgeInsets.only(bottom: 16.0),
+            child: Stack(
+                alignment: Alignment.center,
+                children: cardList.length > 0
+                    ? cardList
+                    : <Widget>[
+                        Center(
+                          child: Text("There is no list data !!"),
+                        )
+                      ]),
+          ),
 
+      ),
     );
   }
 
   List<Widget> _getMatchCard(
-      {onRightSwipe(),
+      {
+        onRightSwipe(),
       onLeftSwipe(),
       onCardClicked(),
       onUpSwipe(),
@@ -181,10 +174,14 @@ class _MyHomePageState extends State<MyHomePage> {
             if (drag.offset.dx > widget.width / 10) {
 //              print("Card swiped Right");
               onRightSwipe();
-              widget.onRightSwipe();
+
+              if(widget.onRightSwipe != null){widget.onRightSwipe();}
+
             } else if (drag.offset.dx < -widget.width / 10) {
 //              print("Card swiped Left");
               onLeftSwipe();
+              if(widget.onLeftSwipe != null){widget.onLeftSwipe();}
+
             } else {
 //              print("Card left/right Neutral");
             }
@@ -192,9 +189,13 @@ class _MyHomePageState extends State<MyHomePage> {
             if (drag.offset.dy > (widget.height / 5) + 10) {
 //              print("Card swiped down");
               onDownSwipe();
+              if(widget.onDownSwipe != null){widget.onDownSwipe();}
+
             } else if (drag.offset.dy < -(widget.height / 5) + 10) {
 //              print("Card swiped up");
               onUpSwipe();
+              if(widget.onUpSwipe != null){widget.onUpSwipe();}
+
             } else {
 //              print("Card up/down Neutral");
             }
