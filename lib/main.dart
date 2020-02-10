@@ -350,7 +350,7 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
 
           if ((drag.offset.dx > (widget.width / 10) + widget.threshold) &&
               drag.offset.distance > widget.threshold * 10) {
-            print("Card swiped Right");
+//            print("Card swiped Right");
             onRightSwipe();
 
             if (widget.onRightSwipe != null) {
@@ -359,19 +359,19 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
           } else if ((drag.offset.dx <
               -(widget.width / 10) + widget.threshold) &&
               drag.offset.distance > widget.threshold * 10) {
-            print("Card swiped Left");
+//            print("Card swiped Left");
             onLeftSwipe();
             if (widget.onLeftSwipe != null) {
               widget.onLeftSwipe();
             }
           } else {
-            print("Card left/right Neutral");
+//            print("Card left/right Neutral");
             leftRightNeutral = true;
           }
 
           if ((drag.offset.dy > (widget.height / 5) + widget.threshold * 3) &&
               drag.offset.distance > widget.threshold * 10) {
-            print("Card swiped down");
+//            print("Card swiped down");
             onDownSwipe();
             if (widget.onDownSwipe != null) {
               widget.onDownSwipe();
@@ -379,13 +379,13 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
           } else if ((drag.offset.dy <
               -(widget.height / 5) + widget.threshold) &&
               drag.offset.distance > widget.threshold * 10) {
-            print("Card swiped up");
+//            print("Card swiped up");
             onUpSwipe();
             if (widget.onUpSwipe != null) {
               widget.onUpSwipe();
             }
           } else {
-            print("Card up/down Neutral");
+//            print("Card up/down Neutral");
             upDownNeutral = true;
           }
 
@@ -396,7 +396,7 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
           if (upDownNeutral &&
               leftRightNeutral &&
               drag.offset.distance < widget.threshold * 8) {
-            print("Card Clicked");
+//            print("Card Clicked");
             onCardClicked();
           }
         },
