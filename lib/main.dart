@@ -17,11 +17,22 @@ class MyApp extends StatelessWidget {
         height: 540,
         width: 340,
         threshold: 25,
-        onCardClicked: () {},
-        onLeftSwipe: () {},
-        onUpSwipe: () {},
+        onCardClicked: (cardPosition){
+          print("Card Position "+ cardPosition.toString());
+        },
+        onLeftSwipe: (cardPosition) {
+          print("Card Position "+ cardPosition.toString());
+        },
+        onUpSwipe: (cardPosition) {
+          print("Card Position "+ cardPosition.toString());
+        },
+        onDownSwipe: (cardPosition) {
+          print("Card Position "+ cardPosition.toString());
+        },
         cardBgColor: Colors.grey,
-        onRightSwipe: () {},
+        onRightSwipe: (cardPosition) {
+          print("Card Position "+ cardPosition.toString());
+        },
         childWidgetList: <Widget>[
           Container(
             height: 100.0,
@@ -222,13 +233,12 @@ class CardSwiper extends StatefulWidget {
       this.positionRight = 10.0,
       this.cardBgColor,
       @required this.childWidgetList,
-      this.dataList,
       this.expectedObjectInstance,
-      this.onDownSwipe,
-      this.onLeftSwipe,
-      this.onUpSwipe,
-      this.onRightSwipe,
-      this.onCardClicked})
+      this.onDownSwipe(cardPosition),
+      this.onLeftSwipe(cardPosition),
+      this.onUpSwipe(cardPosition),
+      this.onRightSwipe(cardPosition),
+      this.onCardClicked(cardPosition)})
       : super(key: key);
 
   final String title;
@@ -274,29 +284,29 @@ class _CardSwiperState extends State<CardSwiper> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    cardList = _getMatchCard(onRightSwipe: () {
+    cardList = _getCardDeck(onRightSwipe: (cardPosition) {
       if (widget.onRightSwipe != null) {
-        widget.onRightSwipe();
+        widget.onRightSwipe(cardPosition);
       }
 //      print("Right swipe");
-    }, onLeftSwipe: () {
+    }, onLeftSwipe: (cardPosition) {
       if (widget.onLeftSwipe != null) {
-        widget.onLeftSwipe();
+        widget.onLeftSwipe(cardPosition);
       }
 //      print("Left swipe");
-    }, onUpSwipe: () {
+    }, onUpSwipe: (cardPosition) {
       if (widget.onUpSwipe != null) {
-        widget.onUpSwipe();
+        widget.onUpSwipe(cardPosition);
       }
 //      print("Up swipe");
-    }, onDownSwipe: () {
+    }, onDownSwipe: (cardPosition) {
       if (widget.onDownSwipe != null) {
-        widget.onDownSwipe();
+        widget.onDownSwipe(cardPosition);
       }
 //      print("Down swipe");
-    }, onCardClicked: () {
+    }, onCardClicked: (cardPosition) {
       if (widget.onCardClicked != null) {
-        widget.onCardClicked();
+        widget.onCardClicked(cardPosition);
       }
 //      print("Card Clicked");
     });
@@ -324,22 +334,22 @@ class _CardSwiperState extends State<CardSwiper> {
     );
   }
 
-  List<Widget> _getMatchCard(
-      {onRightSwipe(),
-      onLeftSwipe(),
-      onCardClicked(),
-      onUpSwipe(),
-      onDownSwipe()}) {
+  List<Widget> _getCardDeck(
+      {onRightSwipe( int cardPosition),
+      onLeftSwipe(int cardPosition),
+      onCardClicked(int cardPosition),
+      onUpSwipe(int cardPosition),
+      onDownSwipe(int cardPosition)}) {
     List<Widget> cardList = new List();
 if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
-  for (int x = 0; x < widget.childWidgetList.length; x++) {
+  for (int cardIndex = widget.childWidgetList.length-1; cardIndex ==0 ; cardIndex--) {
     cardList.add(
         Positioned(
-      bottom: x == 0
+      bottom: cardIndex == 0
           ? widget.positionBottom
-          : x == 1
+          : cardIndex == 1
           ? widget.positionBottom * 2
-          : x >= 2 ? widget.positionBottom * 3 : widget.positionBottom,
+          : cardIndex >= 2 ? widget.positionBottom * 3 : widget.positionBottom,
       top: widget.positionTop,
       left: widget.positionLeft,
       right: widget.positionRight,
@@ -351,18 +361,18 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
           if ((drag.offset.dx > (widget.width / 10) + widget.threshold) &&
               drag.offset.distance > widget.threshold * 10) {
 //            print("Card swiped Right");
-            onRightSwipe();
+            onRightSwipe(cardIndex);
 
             if (widget.onRightSwipe != null) {
-              widget.onRightSwipe();
+              widget.onRightSwipe(cardIndex);
             }
           } else if ((drag.offset.dx <
               -(widget.width / 10) + widget.threshold) &&
               drag.offset.distance > widget.threshold * 10) {
 //            print("Card swiped Left");
-            onLeftSwipe();
+            onLeftSwipe(cardIndex);
             if (widget.onLeftSwipe != null) {
-              widget.onLeftSwipe();
+              widget.onLeftSwipe(cardIndex);
             }
           } else {
 //            print("Card left/right Neutral");
@@ -372,17 +382,17 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
           if ((drag.offset.dy > (widget.height / 5) + widget.threshold * 3) &&
               drag.offset.distance > widget.threshold * 10) {
 //            print("Card swiped down");
-            onDownSwipe();
+            onDownSwipe(cardIndex);
             if (widget.onDownSwipe != null) {
-              widget.onDownSwipe();
+              widget.onDownSwipe(cardIndex);
             }
           } else if ((drag.offset.dy <
               -(widget.height / 5) + widget.threshold) &&
               drag.offset.distance > widget.threshold * 10) {
 //            print("Card swiped up");
-            onUpSwipe();
+            onUpSwipe(cardIndex);
             if (widget.onUpSwipe != null) {
-              widget.onUpSwipe();
+              widget.onUpSwipe(cardIndex);
             }
           } else {
 //            print("Card up/down Neutral");
@@ -390,14 +400,14 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
           }
 
           if (drag.offset.distance > widget.threshold * 10) {
-            _removeCard(x);
+            _removeCard(cardIndex);
           }
 
           if (upDownNeutral &&
               leftRightNeutral &&
               drag.offset.distance < widget.threshold * 8) {
 //            print("Card Clicked");
-            onCardClicked();
+            onCardClicked(cardIndex);
           }
         },
         childWhenDragging: Container(),
@@ -410,7 +420,7 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
             alignment: Alignment.center,
             width: widget.width,
             height: widget.height,
-            child: widget.childWidgetList[x] ?? SizedBox(),
+            child: widget.childWidgetList[cardIndex] ?? SizedBox(),
           ),
         ),
         child: Card(
@@ -422,7 +432,7 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
             alignment: Alignment.center,
             width: widget.width,
             height: widget.height,
-            child: widget.childWidgetList[x] ?? SizedBox(),
+            child: widget.childWidgetList[cardIndex] ?? SizedBox(),
           ),
         ),
       ),
@@ -442,18 +452,18 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
         if ((drag.offset.dx > (widget.width / 10) + widget.threshold) &&
             drag.offset.distance > widget.threshold * 10) {
 //          print("Card swiped Right");
-          onRightSwipe();
+          onRightSwipe(0);
 
           if (widget.onRightSwipe != null) {
-            widget.onRightSwipe();
+            widget.onRightSwipe(0);
           }
         } else if ((drag.offset.dx <
             -(widget.width / 10) + widget.threshold) &&
             drag.offset.distance > widget.threshold * 10) {
 //          print("Card swiped Left");
-          onLeftSwipe();
+          onLeftSwipe(0);
           if (widget.onLeftSwipe != null) {
-            widget.onLeftSwipe();
+            widget.onLeftSwipe(0);
           }
         } else {
 //          print("Card left/right Neutral");
@@ -463,17 +473,17 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
         if ((drag.offset.dy > (widget.height / 5) + widget.threshold * 3) &&
             drag.offset.distance > widget.threshold * 10) {
 //          print("Card swiped down");
-          onDownSwipe();
+          onDownSwipe(0);
           if (widget.onDownSwipe != null) {
-            widget.onDownSwipe();
+            widget.onDownSwipe(0);
           }
         } else if ((drag.offset.dy <
             -(widget.height / 5) + widget.threshold) &&
             drag.offset.distance > widget.threshold * 10) {
 //          print("Card swiped up");
-          onUpSwipe();
+          onUpSwipe(0);
           if (widget.onUpSwipe != null) {
-            widget.onUpSwipe();
+            widget.onUpSwipe(0);
           }
         } else {
 //          print("Card up/down Neutral");
@@ -488,7 +498,7 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
             leftRightNeutral &&
             drag.offset.distance < widget.threshold * 8) {
 //          print("Card Clicked");
-          onCardClicked();
+          onCardClicked(0);
         }
       },
       childWhenDragging: Container(),
