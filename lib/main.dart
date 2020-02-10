@@ -16,11 +16,195 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Card Stack',
         height: 540,
         width: 340,
-        threshold: 20,
-        onCardClicked: (){},
-        onLeftSwipe: (){},
-        onUpSwipe: (){},
-        onRightSwipe: (){},),
+        threshold: 25,
+        onCardClicked: () {},
+        onLeftSwipe: () {},
+        onUpSwipe: () {},
+        cardBgColor: Colors.grey,
+        onRightSwipe: () {},
+        childWidgetList: <Widget>[
+          Container(
+            height: 100.0,
+            width: 300.0,
+            color: Colors.white70,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Text Test",
+                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+            height: 100.0,
+            width: 300.0,
+            color: Colors.white70,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Text Test1",
+                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+            height: 100.0,
+            width: 300.0,
+            color: Colors.white70,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Text Test2",
+                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+            height: 100.0,
+            width: 300.0,
+            color: Colors.white70,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Text Test3",
+                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+            height: 100.0,
+            width: 300.0,
+            color: Colors.white70,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Text Test4",
+                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+            height: 100.0,
+            width: 300.0,
+            color: Colors.white70,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Text Test5",
+                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+            height: 100.0,
+            width: 300.0,
+            color: Colors.white70,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Text Test6",
+                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+            height: 100.0,
+            width: 300.0,
+            color: Colors.white70,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Text Test7",
+                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+            height: 100.0,
+            width: 300.0,
+            color: Colors.white70,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Text Test9",
+                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+            height: 100.0,
+            width: 300.0,
+            color: Colors.white70,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Text Test8",
+                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+                )
+              ],
+            ),
+          ),
+
+        ],
+      ),
     );
   }
 }
@@ -36,6 +220,10 @@ class MyHomePage extends StatefulWidget {
       this.positionBottom = 10.0,
       this.positionLeft = 10.0,
       this.positionRight = 10.0,
+      this.cardBgColor,
+      @required this.childWidgetList,
+      this.dataList,
+      this.expectedObjectInstance,
       this.onDownSwipe,
       this.onLeftSwipe,
       this.onUpSwipe,
@@ -56,11 +244,18 @@ class MyHomePage extends StatefulWidget {
 
   final double positionRight;
 
+  Color cardBgColor;
+
+  List<Widget> childWidgetList;
+
   final Function onRightSwipe;
   final Function onLeftSwipe;
   final Function onDownSwipe;
   final Function onUpSwipe;
   final Function onCardClicked;
+
+  List dataList = [];
+  dynamic expectedObjectInstance;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -68,8 +263,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> cardList;
-
-  Widget childWidget;
 
   void _removeCard(index) {
     setState(() {
@@ -81,169 +274,253 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    cardList = _getMatchCard(
-        onRightSwipe: () {
-          if(widget.onRightSwipe != null){widget.onRightSwipe();}
-      print("Right swipe");
-    },
-        onLeftSwipe: () {
-          if(widget.onLeftSwipe != null){widget.onLeftSwipe();}
-      print("Left swipe");
-    },
-        onUpSwipe: () {
-          if(widget.onUpSwipe != null){widget.onUpSwipe();}
-      print("Up swipe");
-    },
-        onDownSwipe: () {
-          if(widget.onDownSwipe != null){widget.onDownSwipe();}
-      print("Down swipe");
-    },
-        onCardClicked: () {
-          if(widget.onCardClicked != null){widget.onCardClicked();}
-      print("Card Clicked");
+    cardList = _getMatchCard(onRightSwipe: () {
+      if (widget.onRightSwipe != null) {
+        widget.onRightSwipe();
+      }
+//      print("Right swipe");
+    }, onLeftSwipe: () {
+      if (widget.onLeftSwipe != null) {
+        widget.onLeftSwipe();
+      }
+//      print("Left swipe");
+    }, onUpSwipe: () {
+      if (widget.onUpSwipe != null) {
+        widget.onUpSwipe();
+      }
+//      print("Up swipe");
+    }, onDownSwipe: () {
+      if (widget.onDownSwipe != null) {
+        widget.onDownSwipe();
+      }
+//      print("Down swipe");
+    }, onCardClicked: () {
+      if (widget.onCardClicked != null) {
+        widget.onCardClicked();
+      }
+//      print("Card Clicked");
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    childWidget = Container(
-      height: widget.height,
-      width: widget.width,
-      alignment: Alignment.center,
-      padding: EdgeInsets.all(50.0),
-      child: Column(
-        children: <Widget>[
-          Text(
-            "Text Test",
-          )
-        ],
-      ),
-    );
     return Scaffold(
       body: Center(
-          child: Container(
-            height: widget.height+16,
-            width: widget.width,
-            padding: EdgeInsets.only(bottom: 16.0),
-            child: Stack(
-                alignment: Alignment.center,
-                children: cardList.length > 0
-                    ? cardList
-                    : <Widget>[
-                        Center(
-                          child: Text("There is no list data !!"),
-                        )
-                      ]),
-          ),
-
+        child: Container(
+          height: widget.height + 16,
+          width: widget.width,
+          padding: EdgeInsets.only(bottom: 16.0),
+          child: Stack(
+              alignment: Alignment.center,
+              children: cardList.length > 0
+                  ? cardList
+                  : <Widget>[
+                      Center(
+                        child: Text("There is no list data !!"),
+                      )
+                    ]),
+        ),
       ),
     );
   }
 
   List<Widget> _getMatchCard(
-      {
-        onRightSwipe(),
+      {onRightSwipe(),
       onLeftSwipe(),
       onCardClicked(),
       onUpSwipe(),
       onDownSwipe()}) {
-    List<MatchCard> cards = new List();
-    cards.add(MatchCard(255, 0, 0, marginBottom: 10));
-    cards.add(MatchCard(0, 255, 0, marginBottom: 20));
-    cards.add(MatchCard(0, 255, 255, marginBottom: 30));
-    cards.add(MatchCard(255, 0, 255, marginBottom: 30));
-    cards.add(MatchCard(0, 0, 255, marginBottom: 30));
-    cards.add(MatchCard(255, 255, 0, marginBottom: 30));
-    cards.add(MatchCard(255, 0, 0, marginBottom: 30));
-    cards.add(MatchCard(0, 255, 0, marginBottom: 30));
-    cards.add(MatchCard(0, 255, 255, marginBottom: 30));
-    cards.add(MatchCard(255, 0, 255, marginBottom: 30));
-    cards.add(MatchCard(0, 0, 255, marginBottom: 30));
-    cards.add(MatchCard(255, 255, 0, marginBottom: 30));
-
     List<Widget> cardList = new List();
+if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
+  for (int x = 0; x < widget.childWidgetList.length; x++) {
+    cardList.add(
+        Positioned(
+      bottom: x == 0
+          ? widget.positionBottom
+          : x == 1
+          ? widget.positionBottom * 2
+          : x >= 2 ? widget.positionBottom * 3 : widget.positionBottom,
+      top: widget.positionTop,
+      left: widget.positionLeft,
+      right: widget.positionRight,
+      child: Draggable(
+        onDragEnd: (drag) {
+          bool upDownNeutral = false;
+          bool leftRightNeutral = false;
 
-    for (int x = 0; x < cards.length; x++) {
-      cardList.add(Positioned(
-        bottom: cards[x].marginBottom,
-        top: cards[x].marginTop,
-        left: cards[x].marginLeft,
-        right: cards[x].marginRight,
-        child: Draggable(
-          onDragEnd: (drag) {
-            if (drag.offset.dx > widget.width / 10) {
-//              print("Card swiped Right");
-              onRightSwipe();
+          if ((drag.offset.dx > (widget.width / 10) + widget.threshold) &&
+              drag.offset.distance > widget.threshold * 10) {
+            print("Card swiped Right");
+            onRightSwipe();
 
-              if(widget.onRightSwipe != null){widget.onRightSwipe();}
-
-            } else if (drag.offset.dx < -widget.width / 10) {
-//              print("Card swiped Left");
-              onLeftSwipe();
-              if(widget.onLeftSwipe != null){widget.onLeftSwipe();}
-
-            } else {
-//              print("Card left/right Neutral");
+            if (widget.onRightSwipe != null) {
+              widget.onRightSwipe();
             }
-
-            if (drag.offset.dy > (widget.height / 5) + 10) {
-//              print("Card swiped down");
-              onDownSwipe();
-              if(widget.onDownSwipe != null){widget.onDownSwipe();}
-
-            } else if (drag.offset.dy < -(widget.height / 5) + 10) {
-//              print("Card swiped up");
-              onUpSwipe();
-              if(widget.onUpSwipe != null){widget.onUpSwipe();}
-
-            } else {
-//              print("Card up/down Neutral");
+          } else if ((drag.offset.dx <
+              -(widget.width / 10) + widget.threshold) &&
+              drag.offset.distance > widget.threshold * 10) {
+            print("Card swiped Left");
+            onLeftSwipe();
+            if (widget.onLeftSwipe != null) {
+              widget.onLeftSwipe();
             }
+          } else {
+            print("Card left/right Neutral");
+            leftRightNeutral = true;
+          }
 
-            if (drag.offset.distance > widget.threshold*10) {
-              _removeCard(x);
+          if ((drag.offset.dy > (widget.height / 5) + widget.threshold * 3) &&
+              drag.offset.distance > widget.threshold * 10) {
+            print("Card swiped down");
+            onDownSwipe();
+            if (widget.onDownSwipe != null) {
+              widget.onDownSwipe();
             }
+          } else if ((drag.offset.dy <
+              -(widget.height / 5) + widget.threshold) &&
+              drag.offset.distance > widget.threshold * 10) {
+            print("Card swiped up");
+            onUpSwipe();
+            if (widget.onUpSwipe != null) {
+              widget.onUpSwipe();
+            }
+          } else {
+            print("Card up/down Neutral");
+            upDownNeutral = true;
+          }
 
-            if (drag.offset.distance < widget.threshold*10 &&
-                (drag.offset.dx < widget.width / 10 ||
-                    drag.offset.dx > -widget.width / 10 ||
-                    (drag.offset.dy < (widget.height / 5) + 10) ||
-                    (drag.offset.dy > -(widget.height / 5) + 10))) {
-//              print("Card Clicked");
-              onCardClicked();
-            }
-          },
-          childWhenDragging: Container(),
-          feedback: Card(
-            elevation: 0.0,
-            color: Color.fromARGB(255, cards[x].redColor, cards[x].greenColor,
-                cards[x].blueColor),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Container(
-              alignment: Alignment.center,
-              width: widget.width,
-              height: widget.height,
-              child: childWidget,
-            ),
-          ),
-          child: Card(
-            elevation: 0.0,
-            color: Color.fromARGB(255, cards[x].redColor, cards[x].greenColor,
-                cards[x].blueColor),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Container(
-              alignment: Alignment.center,
-              width: widget.width,
-              height: widget.height,
-              child: childWidget,
-            ),
+          if (drag.offset.distance > widget.threshold * 10) {
+            _removeCard(x);
+          }
+
+          if (upDownNeutral &&
+              leftRightNeutral &&
+              drag.offset.distance < widget.threshold * 8) {
+            print("Card Clicked");
+            onCardClicked();
+          }
+        },
+        childWhenDragging: Container(),
+        feedback: Card(
+          elevation: 1.0,
+          color: widget.cardBgColor ?? Colors.grey.shade100,
+          shape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          child: Container(
+            alignment: Alignment.center,
+            width: widget.width,
+            height: widget.height,
+            child: widget.childWidgetList[x] ?? SizedBox(),
           ),
         ),
-      ));
-    }
+        child: Card(
+          elevation: 1.0,
+          color: widget.cardBgColor ?? Colors.grey.shade100,
+          shape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          child: Container(
+            alignment: Alignment.center,
+            width: widget.width,
+            height: widget.height,
+            child: widget.childWidgetList[x] ?? SizedBox(),
+          ),
+        ),
+      ),
+    ));
+  }
+}else{
+  cardList.add(Positioned(
+    bottom: widget.positionBottom,
+    top: widget.positionTop,
+    left: widget.positionLeft,
+    right: widget.positionRight,
+    child: Draggable(
+      onDragEnd: (drag) {
+        bool upDownNeutral = false;
+        bool leftRightNeutral = false;
+
+        if ((drag.offset.dx > (widget.width / 10) + widget.threshold) &&
+            drag.offset.distance > widget.threshold * 10) {
+//          print("Card swiped Right");
+          onRightSwipe();
+
+          if (widget.onRightSwipe != null) {
+            widget.onRightSwipe();
+          }
+        } else if ((drag.offset.dx <
+            -(widget.width / 10) + widget.threshold) &&
+            drag.offset.distance > widget.threshold * 10) {
+//          print("Card swiped Left");
+          onLeftSwipe();
+          if (widget.onLeftSwipe != null) {
+            widget.onLeftSwipe();
+          }
+        } else {
+//          print("Card left/right Neutral");
+          leftRightNeutral = true;
+        }
+
+        if ((drag.offset.dy > (widget.height / 5) + widget.threshold * 3) &&
+            drag.offset.distance > widget.threshold * 10) {
+//          print("Card swiped down");
+          onDownSwipe();
+          if (widget.onDownSwipe != null) {
+            widget.onDownSwipe();
+          }
+        } else if ((drag.offset.dy <
+            -(widget.height / 5) + widget.threshold) &&
+            drag.offset.distance > widget.threshold * 10) {
+//          print("Card swiped up");
+          onUpSwipe();
+          if (widget.onUpSwipe != null) {
+            widget.onUpSwipe();
+          }
+        } else {
+//          print("Card up/down Neutral");
+          upDownNeutral = true;
+        }
+
+        if (drag.offset.distance > widget.threshold * 10) {
+//          _removeCard(0);
+        }
+
+        if (upDownNeutral &&
+            leftRightNeutral &&
+            drag.offset.distance < widget.threshold * 8) {
+//          print("Card Clicked");
+          onCardClicked();
+        }
+      },
+      childWhenDragging: Container(),
+      feedback: Card(
+        elevation: 1.0,
+        color: widget.cardBgColor ?? Colors.grey.shade100,
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: Container(
+          alignment: Alignment.center,
+          width: widget.width,
+          height: widget.height,
+          child: Text("Please add childWidget data list !!") ,
+        ),
+      ),
+      child: Card(
+        elevation: 1.0,
+        color: widget.cardBgColor ?? Colors.grey.shade100,
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: Container(
+          alignment: Alignment.center,
+          width: widget.width,
+          height: widget.height,
+          child: Text("Please add childWidget data list !!") ,
+        ),
+      ),
+    ),
+  ));
+}
 
     return cardList;
   }
+
 }
