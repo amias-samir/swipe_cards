@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(
+      home: CardSwiper(
         title: 'Flutter Card Stack',
         height: 540,
         width: 340,
@@ -209,8 +209,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage(
+class CardSwiper extends StatefulWidget {
+  CardSwiper(
       {Key key,
       this.title,
       this.height = 540,
@@ -258,10 +258,10 @@ class MyHomePage extends StatefulWidget {
   dynamic expectedObjectInstance;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _CardSwiperState createState() => _CardSwiperState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _CardSwiperState extends State<CardSwiper> {
   List<Widget> cardList;
 
   void _removeCard(index) {
