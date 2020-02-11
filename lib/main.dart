@@ -439,22 +439,30 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
               drag.offset.distance < widget.threshold * 8) {
 //            print("Card Clicked");
             onCardClicked(cardIndex);
+            widget.onCardClicked(cardIndex);
           }
         },
         childWhenDragging: Container(),
-        feedback: Card(
+        feedback:
+        Card(
           elevation: 1.0,
           color: widget.cardBgColor ?? Colors.grey.shade100,
           shape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          child: Container(
+          child:
+          Container(
             alignment: Alignment.center,
             width: widget.width,
             height: widget.height,
-            child: widget.childWidgetList[cardIndex] ?? SizedBox(),
+            child: InkWell(child: widget.childWidgetList[cardIndex] ?? SizedBox(),
+            onTap: (){
+              onCardClicked(cardIndex);
+              widget.onCardClicked(cardIndex);
+            },),
           ),
         ),
-        child: Card(
+        child:
+        Card(
           elevation: 1.0,
           color: widget.cardBgColor ?? Colors.grey.shade100,
           shape:
