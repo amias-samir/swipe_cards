@@ -471,7 +471,11 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
             alignment: Alignment.center,
             width: widget.width,
             height: widget.height,
-            child: widget.childWidgetList[cardIndex] ?? SizedBox(),
+            child: InkWell(child: widget.childWidgetList[cardIndex] ?? SizedBox(),
+              onTap: (){
+                onCardClicked(cardIndex);
+                widget.onCardClicked(cardIndex);
+              },),
           ),
         ),
       ),
