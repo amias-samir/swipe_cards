@@ -34,188 +34,6 @@ class MyApp extends StatelessWidget {
           print("Card Position "+ cardPosition.toString());
         },
         childWidgetList: childList()
-//        <Widget>[
-//          Container(
-//            height: 100.0,
-//            width: 300.0,
-//            color: Colors.white70,
-//            alignment: Alignment.center,
-//            padding: EdgeInsets.all(16.0),
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Text(
-//                  "Text Test",
-//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-//                )
-//              ],
-//            ),
-//          ),
-//
-//          Container(
-//            height: 100.0,
-//            width: 300.0,
-//            color: Colors.white70,
-//            alignment: Alignment.center,
-//            padding: EdgeInsets.all(16.0),
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Text(
-//                  "Text Test1",
-//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-//                )
-//              ],
-//            ),
-//          ),
-//
-//          Container(
-//            height: 100.0,
-//            width: 300.0,
-//            color: Colors.white70,
-//            alignment: Alignment.center,
-//            padding: EdgeInsets.all(16.0),
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Text(
-//                  "Text Test2",
-//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-//                )
-//              ],
-//            ),
-//          ),
-//
-//          Container(
-//            height: 100.0,
-//            width: 300.0,
-//            color: Colors.white70,
-//            alignment: Alignment.center,
-//            padding: EdgeInsets.all(16.0),
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Text(
-//                  "Text Test3",
-//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-//                )
-//              ],
-//            ),
-//          ),
-//
-//          Container(
-//            height: 100.0,
-//            width: 300.0,
-//            color: Colors.white70,
-//            alignment: Alignment.center,
-//            padding: EdgeInsets.all(16.0),
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Text(
-//                  "Text Test4",
-//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-//                )
-//              ],
-//            ),
-//          ),
-//
-//          Container(
-//            height: 100.0,
-//            width: 300.0,
-//            color: Colors.white70,
-//            alignment: Alignment.center,
-//            padding: EdgeInsets.all(16.0),
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Text(
-//                  "Text Test5",
-//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-//                )
-//              ],
-//            ),
-//          ),
-//
-//          Container(
-//            height: 100.0,
-//            width: 300.0,
-//            color: Colors.white70,
-//            alignment: Alignment.center,
-//            padding: EdgeInsets.all(16.0),
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Text(
-//                  "Text Test6",
-//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-//                )
-//              ],
-//            ),
-//          ),
-//
-//          Container(
-//            height: 100.0,
-//            width: 300.0,
-//            color: Colors.white70,
-//            alignment: Alignment.center,
-//            padding: EdgeInsets.all(16.0),
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Text(
-//                  "Text Test7",
-//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-//                )
-//              ],
-//            ),
-//          ),
-//
-//          Container(
-//            height: 100.0,
-//            width: 300.0,
-//            color: Colors.white70,
-//            alignment: Alignment.center,
-//            padding: EdgeInsets.all(16.0),
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Text(
-//                  "Text Test9",
-//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-//                )
-//              ],
-//            ),
-//          ),
-//
-//          Container(
-//            height: 100.0,
-//            width: 300.0,
-//            color: Colors.white70,
-//            alignment: Alignment.center,
-//            padding: EdgeInsets.all(16.0),
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Text(
-//                  "Text Test8",
-//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-//                )
-//              ],
-//            ),
-//          ),
-//
-//        ],
       ),
 
     );
@@ -350,7 +168,7 @@ class _CardSwiperState extends State<CardSwiper> {
         child: Container(
           height: widget.height + 16,
           width: widget.width,
-          padding: EdgeInsets.only(bottom: 16.0),
+//          padding: EdgeInsets.only(bottom: 16.0),
           child: Stack(
               alignment: Alignment.center,
               children: cardList.length > 0
@@ -394,17 +212,13 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
 //            print("Card swiped Right");
             onRightSwipe(cardIndex);
 
-//            if (widget.onRightSwipe != null) {
-//              widget.onRightSwipe(cardIndex);
-//            }
+
           } else if ((drag.offset.dx <
               -(widget.width / 10) + widget.threshold) &&
               drag.offset.distance > widget.threshold * 10) {
 //            print("Card swiped Left");
             onLeftSwipe(cardIndex);
-//            if (widget.onLeftSwipe != null) {
-//              widget.onLeftSwipe(cardIndex);
-//            }
+
           } else {
 //            print("Card left/right Neutral");
             leftRightNeutral = true;
@@ -414,17 +228,13 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
               drag.offset.distance > widget.threshold * 10) {
 //            print("Card swiped down");
             onDownSwipe(cardIndex);
-//            if (widget.onDownSwipe != null) {
-//              widget.onDownSwipe(cardIndex);
-//            }
+
           } else if ((drag.offset.dy <
               -(widget.height / 5) + widget.threshold) &&
               drag.offset.distance > widget.threshold * 10) {
 //            print("Card swiped up");
             onUpSwipe(cardIndex);
-//            if (widget.onUpSwipe != null) {
-//              widget.onUpSwipe(cardIndex);
-//            }
+
           } else {
 //            print("Card up/down Neutral");
             upDownNeutral = true;
