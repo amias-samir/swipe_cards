@@ -339,7 +339,7 @@ class _CardSwiperState extends State<CardSwiper> {
       if (widget.onCardClicked != null) {
         widget.onCardClicked(cardPosition);
       }
-//      print("Card Clicked");
+      print("Card Clicked");
     });
   }
 
@@ -394,17 +394,17 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
 //            print("Card swiped Right");
             onRightSwipe(cardIndex);
 
-            if (widget.onRightSwipe != null) {
-              widget.onRightSwipe(cardIndex);
-            }
+//            if (widget.onRightSwipe != null) {
+//              widget.onRightSwipe(cardIndex);
+//            }
           } else if ((drag.offset.dx <
               -(widget.width / 10) + widget.threshold) &&
               drag.offset.distance > widget.threshold * 10) {
 //            print("Card swiped Left");
             onLeftSwipe(cardIndex);
-            if (widget.onLeftSwipe != null) {
-              widget.onLeftSwipe(cardIndex);
-            }
+//            if (widget.onLeftSwipe != null) {
+//              widget.onLeftSwipe(cardIndex);
+//            }
           } else {
 //            print("Card left/right Neutral");
             leftRightNeutral = true;
@@ -414,17 +414,17 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
               drag.offset.distance > widget.threshold * 10) {
 //            print("Card swiped down");
             onDownSwipe(cardIndex);
-            if (widget.onDownSwipe != null) {
-              widget.onDownSwipe(cardIndex);
-            }
+//            if (widget.onDownSwipe != null) {
+//              widget.onDownSwipe(cardIndex);
+//            }
           } else if ((drag.offset.dy <
               -(widget.height / 5) + widget.threshold) &&
               drag.offset.distance > widget.threshold * 10) {
 //            print("Card swiped up");
             onUpSwipe(cardIndex);
-            if (widget.onUpSwipe != null) {
-              widget.onUpSwipe(cardIndex);
-            }
+//            if (widget.onUpSwipe != null) {
+//              widget.onUpSwipe(cardIndex);
+//            }
           } else {
 //            print("Card up/down Neutral");
             upDownNeutral = true;
@@ -460,8 +460,8 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
               widget.childWidgetList[cardIndex] ?? SizedBox(),
             ),
             onTap: (){
-              onCardClicked(cardIndex);
-              widget.onCardClicked(cardIndex);
+//              onCardClicked(cardIndex);
+//              widget.onCardClicked(cardIndex);
             },
           ),
         ),
@@ -480,7 +480,7 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
             ),
             onTap: (){
               onCardClicked(cardIndex);
-              widget.onCardClicked(cardIndex);
+//              widget.onCardClicked(cardIndex);
             },
           ),
         ),
