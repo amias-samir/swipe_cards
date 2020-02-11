@@ -434,13 +434,13 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
             _removeCard(cardIndex);
           }
 
-          if (upDownNeutral &&
-              leftRightNeutral &&
-              drag.offset.distance < widget.threshold * 8) {
-//            print("Card Clicked");
-            onCardClicked(cardIndex);
-            widget.onCardClicked(cardIndex);
-          }
+//          if (upDownNeutral &&
+//              leftRightNeutral &&
+//              drag.offset.distance < widget.threshold * 8) {
+////            print("Card Clicked");
+//            onCardClicked(cardIndex);
+//            widget.onCardClicked(cardIndex);
+//          }
         },
         childWhenDragging: Container(),
         feedback:
@@ -450,15 +450,19 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
           shape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child:
-          Container(
-            alignment: Alignment.center,
-            width: widget.width,
-            height: widget.height,
-            child: InkWell(child: widget.childWidgetList[cardIndex] ?? SizedBox(),
+          InkWell(
+            child: Container(
+              alignment: Alignment.center,
+              width: widget.width,
+              height: widget.height,
+              child:
+
+              widget.childWidgetList[cardIndex] ?? SizedBox(),
+            ),
             onTap: (){
               onCardClicked(cardIndex);
               widget.onCardClicked(cardIndex);
-            },),
+            },
           ),
         ),
         child:
@@ -467,15 +471,17 @@ if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
           color: widget.cardBgColor ?? Colors.grey.shade100,
           shape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          child: Container(
-            alignment: Alignment.center,
-            width: widget.width,
-            height: widget.height,
-            child: InkWell(child: widget.childWidgetList[cardIndex] ?? SizedBox(),
-              onTap: (){
-                onCardClicked(cardIndex);
-                widget.onCardClicked(cardIndex);
-              },),
+          child: InkWell(
+            child: Container(
+              alignment: Alignment.center,
+              width: widget.width,
+              height: widget.height,
+              child: widget.childWidgetList[cardIndex] ?? SizedBox(),
+            ),
+            onTap: (){
+              onCardClicked(cardIndex);
+              widget.onCardClicked(cardIndex);
+            },
           ),
         ),
       ),
