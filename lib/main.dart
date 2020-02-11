@@ -33,190 +33,223 @@ class MyApp extends StatelessWidget {
         onRightSwipe: (cardPosition) {
           print("Card Position "+ cardPosition.toString());
         },
-        childWidgetList: <Widget>[
-          Container(
-            height: 100.0,
-            width: 300.0,
-            color: Colors.white70,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Text Test",
-                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-                )
-              ],
-            ),
-          ),
-
-          Container(
-            height: 100.0,
-            width: 300.0,
-            color: Colors.white70,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Text Test1",
-                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-                )
-              ],
-            ),
-          ),
-
-          Container(
-            height: 100.0,
-            width: 300.0,
-            color: Colors.white70,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Text Test2",
-                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-                )
-              ],
-            ),
-          ),
-
-          Container(
-            height: 100.0,
-            width: 300.0,
-            color: Colors.white70,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Text Test3",
-                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-                )
-              ],
-            ),
-          ),
-
-          Container(
-            height: 100.0,
-            width: 300.0,
-            color: Colors.white70,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Text Test4",
-                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-                )
-              ],
-            ),
-          ),
-
-          Container(
-            height: 100.0,
-            width: 300.0,
-            color: Colors.white70,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Text Test5",
-                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-                )
-              ],
-            ),
-          ),
-
-          Container(
-            height: 100.0,
-            width: 300.0,
-            color: Colors.white70,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Text Test6",
-                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-                )
-              ],
-            ),
-          ),
-
-          Container(
-            height: 100.0,
-            width: 300.0,
-            color: Colors.white70,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Text Test7",
-                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-                )
-              ],
-            ),
-          ),
-
-          Container(
-            height: 100.0,
-            width: 300.0,
-            color: Colors.white70,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Text Test9",
-                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-                )
-              ],
-            ),
-          ),
-
-          Container(
-            height: 100.0,
-            width: 300.0,
-            color: Colors.white70,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Text Test8",
-                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
-                )
-              ],
-            ),
-          ),
-
-        ],
+        childWidgetList: childList()
+//        <Widget>[
+//          Container(
+//            height: 100.0,
+//            width: 300.0,
+//            color: Colors.white70,
+//            alignment: Alignment.center,
+//            padding: EdgeInsets.all(16.0),
+//            child: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Text(
+//                  "Text Test",
+//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+//                )
+//              ],
+//            ),
+//          ),
+//
+//          Container(
+//            height: 100.0,
+//            width: 300.0,
+//            color: Colors.white70,
+//            alignment: Alignment.center,
+//            padding: EdgeInsets.all(16.0),
+//            child: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Text(
+//                  "Text Test1",
+//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+//                )
+//              ],
+//            ),
+//          ),
+//
+//          Container(
+//            height: 100.0,
+//            width: 300.0,
+//            color: Colors.white70,
+//            alignment: Alignment.center,
+//            padding: EdgeInsets.all(16.0),
+//            child: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Text(
+//                  "Text Test2",
+//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+//                )
+//              ],
+//            ),
+//          ),
+//
+//          Container(
+//            height: 100.0,
+//            width: 300.0,
+//            color: Colors.white70,
+//            alignment: Alignment.center,
+//            padding: EdgeInsets.all(16.0),
+//            child: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Text(
+//                  "Text Test3",
+//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+//                )
+//              ],
+//            ),
+//          ),
+//
+//          Container(
+//            height: 100.0,
+//            width: 300.0,
+//            color: Colors.white70,
+//            alignment: Alignment.center,
+//            padding: EdgeInsets.all(16.0),
+//            child: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Text(
+//                  "Text Test4",
+//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+//                )
+//              ],
+//            ),
+//          ),
+//
+//          Container(
+//            height: 100.0,
+//            width: 300.0,
+//            color: Colors.white70,
+//            alignment: Alignment.center,
+//            padding: EdgeInsets.all(16.0),
+//            child: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Text(
+//                  "Text Test5",
+//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+//                )
+//              ],
+//            ),
+//          ),
+//
+//          Container(
+//            height: 100.0,
+//            width: 300.0,
+//            color: Colors.white70,
+//            alignment: Alignment.center,
+//            padding: EdgeInsets.all(16.0),
+//            child: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Text(
+//                  "Text Test6",
+//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+//                )
+//              ],
+//            ),
+//          ),
+//
+//          Container(
+//            height: 100.0,
+//            width: 300.0,
+//            color: Colors.white70,
+//            alignment: Alignment.center,
+//            padding: EdgeInsets.all(16.0),
+//            child: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Text(
+//                  "Text Test7",
+//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+//                )
+//              ],
+//            ),
+//          ),
+//
+//          Container(
+//            height: 100.0,
+//            width: 300.0,
+//            color: Colors.white70,
+//            alignment: Alignment.center,
+//            padding: EdgeInsets.all(16.0),
+//            child: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Text(
+//                  "Text Test9",
+//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+//                )
+//              ],
+//            ),
+//          ),
+//
+//          Container(
+//            height: 100.0,
+//            width: 300.0,
+//            color: Colors.white70,
+//            alignment: Alignment.center,
+//            padding: EdgeInsets.all(16.0),
+//            child: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              children: <Widget>[
+//                Text(
+//                  "Text Test8",
+//                  style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+//                )
+//              ],
+//            ),
+//          ),
+//
+//        ],
       ),
+
     );
+
+
+  }
+
+  List<Widget> childList (){
+
+    List<Widget> childs = [];
+
+    for(int i = 0 ; i< 15 ; i++){
+
+      childs.add( Container(
+        height: 100.0,
+        width: 300.0,
+        color: Colors.white70,
+        alignment: Alignment.center,
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Text Test "+ i.toString(),
+              style: TextStyle(fontSize: 24.0, color: Colors.redAccent),
+            )
+          ],
+        ),
+      ));
+    }
+
+    return childs;
+
   }
 }
 
@@ -233,7 +266,6 @@ class CardSwiper extends StatefulWidget {
       this.positionRight = 10.0,
       this.cardBgColor,
       @required this.childWidgetList,
-      this.expectedObjectInstance,
       this.onDownSwipe(cardPosition),
       this.onLeftSwipe(cardPosition),
       this.onUpSwipe(cardPosition),
@@ -265,7 +297,6 @@ class CardSwiper extends StatefulWidget {
   final Function onCardClicked;
 
   List dataList = [];
-  dynamic expectedObjectInstance;
 
   @override
   _CardSwiperState createState() => _CardSwiperState();
@@ -342,7 +373,7 @@ class _CardSwiperState extends State<CardSwiper> {
       onDownSwipe(int cardPosition)}) {
     List<Widget> cardList = new List();
 if(widget.childWidgetList!= null && widget.childWidgetList.length>0) {
-  for (int cardIndex = widget.childWidgetList.length-1; cardIndex ==0 ; cardIndex--) {
+  for (int cardIndex = 0; cardIndex < widget.childWidgetList.length; cardIndex++) {
     cardList.add(
         Positioned(
       bottom: cardIndex == 0
